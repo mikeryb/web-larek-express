@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { Types, Error as MongooseError } from 'mongoose';
+import { Error as MongooseError } from 'mongoose';
 import { faker } from '@faker-js/faker';
 import Product from '../models/product';
 import BadRequestError from '../errors/BadRequestError';

@@ -9,6 +9,6 @@ const orderSchema = Joi.object({
   items: Joi.array().items(Joi.string()),
 });
 
-const orderRouteValidator = celebrate({ [Segments.BODY]: orderSchema });
+const productRouteValidator = celebrate({ [Segments.BODY]: orderSchema });
 
-export default orderRouteValidator;
+export default productRouteValidator;
