@@ -16,13 +16,13 @@ interface IOrder {
 async function validateOrder(order: IOrder) {
   const itemsIds = order.items;
   const products = await Product.find({
-    _id: { $in: itemsIds.map(id => String(id)) },  // передаём raw-строки
+    _id: { $in: itemsIds.map((id) => String(id)) },
     price: { $ne: null },
   }).exec().catch(() => {
     throw new BadRequestError('некорректные товары в заказе');
   });
 
-  if (products.length != order.items.length) {
+  if (products.length !== order.items.length) {
     throw new BadRequestError('некорректные товары в заказе');
   }
 }
