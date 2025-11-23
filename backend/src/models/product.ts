@@ -10,7 +10,7 @@ export interface IProduct {
   image: IImage,
   category: String,
   description: String,
-  price?: Number
+  price?: number
 }
 
 const imageSchema = new Schema<IImage>({

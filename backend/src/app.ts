@@ -19,8 +19,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/weblarek');
 app.use(requestLogger);
 app.use('/product', productRouter);
 app.use('/order', orderRouteValidator, orderRouter);
+app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
-app.use(errorLogger);
 
 app.listen(3000, () => {});

@@ -25,6 +25,12 @@ async function validateOrder(order: IOrder) {
   if (products.length !== order.items.length) {
     throw new BadRequestError('некорректные товары в заказе');
   }
+
+  const total = products.reduce((sum, product) => sum + (product.price ?? 0), 0);
+
+  if (order.total !== total) {
+    throw new BadRequestError('некорректная общая сумма в заказе');
+  }
 }
 
 const postOrder = async (req: Request, res: Response, next: NextFunction) => {
